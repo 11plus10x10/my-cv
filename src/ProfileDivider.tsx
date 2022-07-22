@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 
 const Header = styled.div<IProps>(
     (props) => css`
+      font-weight: 400;
       display: flex;
       color: #f9fafb;
       margin: 20px;

@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { ProfileDivider } from "./ProfileDivider";
+import { SocialMedia } from "./SocialMedia";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -8,12 +9,32 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   
+  html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  
   body {
-    margin: 0;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: Roboto Flex, sans-serif;
+    font-weight: 100;
     background: linear-gradient(135deg, rgb(0, 217, 232) 0%, rgb(233, 20, 185) 100%);
     height: 100vh;
     width: 100%;
+    overflow: hidden;
+  }
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgb(1 2 3 / 40%);
+    border-radius: 10px;
   }
 `;
 
@@ -29,7 +50,8 @@ const Card = styled.div`
   background: rgba(16 18 27 / 40%);
   border-radius: 14px;
   backdrop-filter: blur(20px);
-  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2)
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+  overflow: hidden;
 `;
 
 const borderColor = "rgba(113 119 144 / 25%)";
@@ -56,6 +78,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-grow: 1;
   overflow: hidden;
+  height: 100%;
 `;
 
 const LeftSide = styled.div`
@@ -63,24 +86,15 @@ const LeftSide = styled.div`
   flex-direction: column;
   align-items: center;
   flex-basis: 240px;
+  height: 100%;
   border-right: 1px solid ${borderColor};
   padding: 26px;
   flex-shrink: 0;
-  overflow: hidden;
+  overflow: auto;
 `;
 
 const Avatar = styled.div`
 `;
-
-// const ProfileDivider = styled.div`
-//   display: flex;
-//   margin: 20px;
-//   background: linear-gradient(315deg, #4dff03, #00d0ff);
-//   border-radius: 5px;
-//   font-size: 20px;
-//   width: 100%;
-//   justify-content: center;
-// `;
 
 export const App: React.FC = () => {
 
@@ -101,13 +115,18 @@ export const App: React.FC = () => {
                                 width={150}
                             />
                         </Avatar>
-                        <ProfileDivider headerStr={"Contacts"}/>
+                        <ProfileDivider headerStr={"Contacts"}>
+                            <SocialMedia/>
+                        </ProfileDivider>
                         <ProfileDivider headerStr={"Profile"}>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                             </p>
                         </ProfileDivider>
                         <ProfileDivider headerStr={"Education"}/>
+                        <div>
+                            Has one
+                        </div>
                     </LeftSide>
                 </Wrapper>
             </Card>
