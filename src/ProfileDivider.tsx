@@ -12,12 +12,12 @@ const Header = styled.div<IProps>(
       width: 100%;
       justify-content: center;
       ${props.headerStr === "Contacts" &&
-      css`background: linear-gradient(33deg, #8debff, #6cacff)`
+      css`background: url("https://www.transparenttextures.com/patterns/arches.png"), linear-gradient(33deg, #8debff, #6cacff)`
       }
       ${props.headerStr === "Profile" &&
-      css`background: linear-gradient(33deg, #f8c390, #d279ee)`}
+      css`background: url("https://www.transparenttextures.com/patterns/black-thread-light.png"), linear-gradient(33deg, #f8c390, #d279ee)`}
       ${props.headerStr === "Education" &&
-      css`background: linear-gradient(33deg, #a16bfe, #bc3d2f)`}
+      css`background: url("https://www.transparenttextures.com/patterns/escheresque.png"), linear-gradient(33deg, #a16bfe, #bc3d2f)`}
     `
 );
 
