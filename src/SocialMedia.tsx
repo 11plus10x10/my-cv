@@ -21,8 +21,8 @@ const Icon = styled.button`
   background: none;
   padding: 1px 5px;
   margin: 10px;
-  height: 32px;
-  width: 32px;
+  height: 35px;
+  width: 35px;
 
   a {
     display: flex;
@@ -95,22 +95,11 @@ const Icon = styled.button`
 
   &::before,
   &::after {
-    background: #ff7979;
-    box-shadow: 0 0 3px #ff7979,
-    0 0 10px #ff7979,
-    0 0 20px #ff7979,
-    0 0 40px #ff7979
-  }
-`;
-
-const BlueIcon = styled(Icon)`
-  &::before,
-  &::after {
-    background: #2bd2ff;
-    box-shadow: 0 0 3px #2bd2ff,
-    0 0 10px #2bd2ff,
-    0 0 20px #2bd2ff,
-    0 0 40px #2bd2ff
+    background: #86dfff;
+    box-shadow: 0 0 3px #86dfff,
+    0 0 10px #86dfff,
+    0 0 20px #86dfff,
+    0 0 40px #86dfff
   }
 `;
 
@@ -122,16 +111,16 @@ export const SocialMedia: React.FC = () => {
                     <FaInstagram size={32} color={"white"}/>
                 </a>
             </Icon>
-            <BlueIcon>
+            <Icon>
                 <a href={"#"}>
                     <FaLinkedin size={32} color={"white"}/>
                 </a>
-            </BlueIcon>
-            <BlueIcon>
+            </Icon>
+            <Icon>
                 <a href={"#"}>
                     <FaTelegram size={32} color={"white"}/>
                 </a>
-            </BlueIcon>
+            </Icon>
         </IconGroup>
     );
 };
