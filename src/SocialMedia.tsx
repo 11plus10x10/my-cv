@@ -3,87 +3,135 @@ import styled from "styled-components";
 import { FaInstagram, FaLinkedin, FaTelegram } from "react-icons/all";
 
 const IconGroup = styled.div`
+  * {
+    box-sizing: border-box;
+  }
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 `;
 
-const Icon = styled.a`
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
+const Icon = styled.button`
+  position: relative;
+  display: inline-block;
+  border: none;
   border-radius: 5px;
-  margin: 5px;
-  height: 37px;
-  width: 37px;
-  background: rgba(255, 255, 255, .05);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
-  border-top: 1px solid rgba(255, 255, 255, .1);
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
-  color: #fff;
-  z-index: 1;
-  transition: all .3s ease-in-out;
-  backdrop-filter: blur(15px);
-  
-  &:after, &:before {
+  background: none;
+  padding: 1px 5px;
+  margin: 10px;
+  height: 32px;
+  width: 32px;
+
+  a {
+    display: flex;
     position: absolute;
-    content: "";
-    height: 4px;
-    width: 10px;
-    z-index: -1;
-    transition: all .4s;
-  }
-  
-  &:after {
-    top: -4px;
-    background: #ffcd00;
-    box-shadow: 0 0 1px #ffcd00;
-    box-shadow: 0 0 2px #ffcd00;
-    box-shadow: 0 0 4px #ffcd00;
-    box-shadow: 0 0 8px #ffcd00;
-  }
-  
-  &:before {
-    bottom: -4px;
-    background: #f100dc;
-    box-shadow: 0 0 1px #f100dc;
-    box-shadow: 0 0 2px #f100dc;
-    box-shadow: 0 0 4px #f100dc;
-    box-shadow: 0 0 8px #f100dc;
-  }
-  
-  &:hover:before,
-  &:hover:after {
-    height: 50%;
+    left: 0;
+    top: 0;
+    height: 100%;
     width: 100%;
-    transition-delay: .3s;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, .05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
     border-radius: 5px;
+    z-index: 1;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    backdrop-filter: blur(15px);
   }
-  
-  &:hover:before {
+
+  a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transition: all .5s ease-out;
+  }
+
+  &::before,
+  &::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 5px;
+    border-radius: 5px;
+    background: #f00;
+    transition: all .4s ease-in-out;
+    transition-delay: 0s;
+  }
+
+  &::before {
+    bottom: -5px;
+  }
+
+  &::after {
+    top: -5px;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    height: 50%;
+    width: 80%;
+    border-radius: 5px;
+    transition-delay: .3s;
+  }
+
+  &:hover::before {
     bottom: 0;
   }
-  
-  &:hover:after {
+
+  &:hover::after {
     top: 0;
+  }
+
+  &::before,
+  &::after {
+    background: #ff7979;
+    box-shadow: 0 0 3px #ff7979,
+    0 0 10px #ff7979,
+    0 0 20px #ff7979,
+    0 0 40px #ff7979
+  }
+`;
+
+const BlueIcon = styled(Icon)`
+  &::before,
+  &::after {
+    background: #2bd2ff;
+    box-shadow: 0 0 3px #2bd2ff,
+    0 0 10px #2bd2ff,
+    0 0 20px #2bd2ff,
+    0 0 40px #2bd2ff
   }
 `;
 
 export const SocialMedia: React.FC = () => {
     return (
         <IconGroup>
-            <Icon href={"#"}>
-                <FaInstagram size={32} color={"white"}/>
+            <Icon>
+                <a href={"#"}>
+                    <FaInstagram size={32} color={"white"}/>
+                </a>
             </Icon>
-            <Icon href={"#"}>
-                <FaLinkedin size={32}/>
-            </Icon>
-            <Icon href={"#"}>
-                <FaTelegram size={32}/>
-            </Icon>
+            <BlueIcon>
+                <a href={"#"}>
+                    <FaLinkedin size={32} color={"white"}/>
+                </a>
+            </BlueIcon>
+            <BlueIcon>
+                <a href={"#"}>
+                    <FaTelegram size={32} color={"white"}/>
+                </a>
+            </BlueIcon>
         </IconGroup>
     );
 };
