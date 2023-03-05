@@ -6,33 +6,32 @@ interface IProps extends IChildrenProps {
     title: string,
 }
 
-const Link = styled.a`
-  text-decoration: none;
-  color: #FFF;
-  display: flex;
-  align-items: center;
-  font-weight: 400;
+const StyledLink = styled.div`
+  --b: 0.1em; /* the thickness of the line */
+  --c: #1095c1; /* the color */
+  
   margin: 1rem;
-  padding: 1rem 3rem;
-  border-radius: 10rem;
-  transform-style: preserve-3d;
-  transition: all 0.6s ease;
-  cursor: pointer;
-  background: #AAC7ED;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 3rem;
+  color: #0000;
+  padding-block: 0.1em;
+  background: linear-gradient(black 50%, #57595D 0) 0% calc(100% - var(--_p,0%))/100% 200%,
+  linear-gradient(black 0 0) 0% var(--_p,0%)/var(--_p,0%) 0.1em no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: .3s var(--_s, 0s) linear, background-size .3s calc(.3s - var(--_s, 0s));
 
   &:hover {
-    background: linear-gradient(56deg, #61dafb 0%, #d6cbf6 46%, #f2056f 100%);
+    --_p: 100%;
+    --_s: .3s;
   }
 `;
 
 export const Button: React.FC<IProps> = ({ title }) => {
-    const [isHovered, setHover] = React.useState(false);
     return (
-        <Link
-            onPointerOver={() => setHover(true)}
-            onPointerOut={() => setHover(false)}
-        >
-            <span>{title}</span>
-        </Link>
+        <StyledLink>{title}</StyledLink>
     );
 };

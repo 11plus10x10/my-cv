@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/web": "^9.6.1",
     "@react-three/drei": "^9.52.0",
     "@react-three/fiber": "^8.10.0",
     "@types/chroma-js": "^2.1.4",

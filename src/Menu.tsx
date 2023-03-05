@@ -1,19 +1,25 @@
 import * as React from "react";
 import styled from "styled-components";
-import { IChildrenProps } from "./Interfaces/IChildrenProps";
+import { Button } from "./Button";
 
 const Wrapper = styled.div`
-  padding: 3rem;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: end;
+  padding: 1rem;
+  position: relative;
+  width: 100%;
+  height: 8rem;
+  overflow: hidden;
 `;
 
+export const Menu: React.FC = () => {
 
-export const Menu: React.FC<IChildrenProps> = ({ children }) => {
     return (
         <Wrapper>
-            {children}
+            <Button title={"Intro"}/>
+            <Button title={"About me"}/>
+            <Button title={"My portfolio"}/>
+            <Button title={"Contact me"}/>
         </Wrapper>
     );
 };

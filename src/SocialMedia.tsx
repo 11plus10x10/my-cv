@@ -3,10 +3,6 @@ import styled from "styled-components";
 import { FaInstagram, FaLinkedin, FaTelegram } from "react-icons/all";
 
 const IconGroup = styled.div`
-  * {
-    box-sizing: border-box;
-  }
-
   display: flex;
   flex-direction: row;
   justify-content: space-around;

@@ -1,7 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
+import { IChildrenProps } from "./Interfaces/IChildrenProps";
 import { Menu } from "./Menu";
-import { Button } from "./Button";
+import { Canvas } from "@react-three/fiber";
+import { Box, Center, Text3D } from "@react-three/drei";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,14 +21,29 @@ const Wrapper = styled.div`
   z-index: 1;
 `;
 
-export const Card: React.FC = () => {
+export const Card: React.FC<IChildrenProps> = ({ children }) => {
+
     return (
-        <Wrapper id={"card"}>
-            <Menu>
-                <Button title={"Intro"}/>
-                <Button title={"Education"}/>
-                <Button title={"Experience"}/>
-            </Menu>
+        <Wrapper>
+            <Menu/>
+            <Canvas>
+                <Center>
+                    {/*<Box args={[1, 1, 1]} rotation={[1,0,0]}/>*/}
+                    <Text3D
+                        curveSegments={32}
+                        bevelEnabled
+                        bevelSize={0.04}
+                        bevelThickness={0.1}
+                        height={0.5}
+                        lineHeight={0.5}
+                        letterSpacing={-0.06}
+                        size={1.5}
+                        font="/Inter_Bold.json">
+                        {`hello\nworld`}
+                        <meshNormalMaterial/>
+                    </Text3D>
+                </Center>
+            </Canvas>
         </Wrapper>
     );
 };
